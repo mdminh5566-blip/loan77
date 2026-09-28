@@ -4,23 +4,132 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loan77 - Personal Loan</title>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f5f7fb;color:#222}
-header{background:#0757d5;color:white;padding:18px 7%;display:flex;justify-content:space-between}
+
+body{
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+color:#222;
+}
+
+header{
+background:#0757d5;
+color:white;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
 .logo{font-size:27px;font-weight:bold}
-.hero{background:linear-gradient(135deg,#0757d5,#168cff);color:white;text-align:center;padding:75px 20px}
+
+.hero{
+background:linear-gradient(135deg,#0757d5,#168cff);
+color:white;
+text-align:center;
+padding:75px 20px;
+}
+
 .hero h1{font-size:42px;margin-bottom:15px}
 .hero p{font-size:18px;margin-bottom:28px}
-.btn{display:inline-block;background:white;color:#0757d5;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:bold}
-.section{padding:55px 7%;text-align:center}
-.cards{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:30px}
-.card{background:white;width:280px;padding:30px 20px;border-radius:12px;box-shadow:0 5px 20px #0001}
-.card h3{color:#0757d5;margin-bottom:12px}
-form{max-width:500px;margin:30px auto;background:white;padding:30px;border-radius:12px;box-shadow:0 5px 20px #0001}
-input,select{width:100%;padding:14px;margin:8px 0;border:1px solid #ddd;border-radius:7px}
-button{width:100%;padding:14px;margin-top:12px;border:0;border-radius:7px;background:#0757d5;color:white;font-weight:bold}
-footer{background:#111827;color:white;text-align:center;padding:25px}
+
+.btn{
+display:inline-block;
+background:white;
+color:#0757d5;
+padding:14px 28px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.section{
+padding:55px 7%;
+text-align:center;
+}
+
+.cards{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.card{
+background:white;
+width:280px;
+padding:30px 20px;
+border-radius:12px;
+box-shadow:0 5px 20px #0001;
+}
+
+.card h3{
+color:#0757d5;
+margin-bottom:12px;
+}
+
+form{
+max-width:520px;
+margin:30px auto;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px #0001;
+text-align:left;
+}
+
+form h3{
+text-align:center;
+color:#0757d5;
+margin-bottom:20px;
+}
+
+label{
+display:block;
+font-weight:bold;
+margin:12px 0 5px;
+}
+
+input,select,textarea{
+width:100%;
+padding:14px;
+border:1px solid #ddd;
+border-radius:7px;
+font-size:15px;
+}
+
+textarea{
+min-height:90px;
+resize:vertical;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:20px;
+border:0;
+border-radius:7px;
+background:#0757d5;
+color:white;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+@media(max-width:600px){
+.hero h1{font-size:32px}
+form{padding:22px}
+}
 </style>
 </head>
 
@@ -38,14 +147,118 @@ footer{background:#111827;color:white;text-align:center;padding:25px}
 </section>
 
 <section class="section">
+
 <h2>Why Choose Loan77?</h2>
+
 <div class="cards">
-<div class="card"><h3>Easy Application</h3><p>সহজভাবে আবেদন করার সুবিধা।</p></div>
-<div class="card"><h3>Fast Process</h3><p>দ্রুত আবেদন প্রক্রিয়া।</p></div>
-<div class="card"><h3>Secure</h3><p>তথ্য নিরাপত্তাকে গুরুত্ব দেওয়া হয়।</p></div>
+
+<div class="card">
+<h3>Easy Application</h3>
+<p>সহজভাবে আবেদন করার সুবিধা।</p>
+</div>
+
+<div class="card">
+<h3>Fast Process</h3>
+<p>দ্রুত আবেদন প্রক্রিয়া।</p>
+</div>
+
+<div class="card">
+<h3>Secure</h3>
+<p>তথ্য নিরাপত্তাকে গুরুত্ব দেওয়া হয়।</p>
+</div>
+
 </div>
 </section>
 
 <section class="section" id="apply">
+
 <h2>Loan Application</h2>
-<form onsubmit="event.preventDefault();
+
+<form id="loanForm">
+
+<h3>আবেদন করার জন্য তথ্য দিন</h3>
+
+<label>আপনার নাম</label>
+<input type="text" id="name" placeholder="আপনার পূর্ণ নাম" required>
+
+<label>মোবাইল নম্বর</label>
+<input type="tel" id="phone" placeholder="01XXXXXXXXX" required>
+
+<label>ঠিকানা</label>
+<textarea id="address" placeholder="আপনার বর্তমান ঠিকানা" required></textarea>
+
+<label>পেশা</label>
+<select id="profession" required>
+<option value="">পেশা নির্বাচন করুন</option>
+<option>চাকরি</option>
+<option>ব্যবসা</option>
+<option>ফ্রিল্যান্সার</option>
+<option>অন্যান্য</option>
+</select>
+
+<label>মাসিক আয়</label>
+<input type="number" id="income" placeholder="মাসিক আয় (টাকা)" required>
+
+<label>Loan Amount</label>
+<select id="amount" required>
+<option value="">Loan Amount নির্বাচন করুন</option>
+<option>৳10,000</option>
+<option>৳20,000</option>
+<option>৳50,000</option>
+<option>৳100,000</option>
+<option>৳200,000</option>
+</select>
+
+<label>Loan Duration</label>
+<select id="duration" required>
+<option value="">মেয়াদ নির্বাচন করুন</option>
+<option>3 মাস</option>
+<option>6 মাস</option>
+<option>12 মাস</option>
+<option>24 মাস</option>
+</select>
+
+<button type="submit">Submit Application</button>
+
+</form>
+
+</section>
+
+<footer>
+© 2026 Loan77. All Rights Reserved.
+</footer>
+
+<script>
+document.getElementById("loanForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const name = document.getElementById("name").value;
+const phone = document.getElementById("phone").value;
+const address = document.getElementById("address").value;
+const profession = document.getElementById("profession").value;
+const income = document.getElementById("income").value;
+const amount = document.getElementById("amount").value;
+const duration = document.getElementById("duration").value;
+
+const message =
+"Loan77 Loan Application\n\n" +
+"নাম: " + name + "\n" +
+"মোবাইল: " + phone + "\n" +
+"ঠিকানা: " + address + "\n" +
+"পেশা: " + profession + "\n" +
+"মাসিক আয়: ৳" + income + "\n" +
+"Loan Amount: " + amount + "\n" +
+"Loan Duration: " + duration;
+
+const whatsapp =
+"https://wa.me/8801576829840?text=" +
+encodeURIComponent(message);
+
+window.location.href = whatsapp;
+
+});
+</script>
+
+</body>
+</html>
